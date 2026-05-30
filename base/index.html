@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7 Bebidas Rápidas para Mañanas Ocupadas</title>
+  <style>
+    :root {
+      --bg: #fbfaf6;
+      --surface: #ffffff;
+      --ink: #202524;
+      --muted: #5f6a67;
+      --primary: #0f6b61;
+      --primary-dark: #0a4b44;
+      --accent: #e36f54;
+      --accent-soft: #fff0eb;
+      --amber: #f4b84a;
+      --line: #dfe7e2;
+      --shadow: 0 14px 30px rgba(15, 75, 68, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 30px 0 46px;
+      background:
+        linear-gradient(180deg, rgba(255, 240, 235, 0.9), rgba(251, 250, 246, 0) 76%),
+        var(--bg);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      background: var(--surface);
+      font-weight: 800;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--primary-dark);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    .nav-link:hover {
+      border-color: var(--accent);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.08;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(2.25rem, 6vw, 5rem);
+      color: var(--ink);
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      border: 2px solid var(--primary);
+      box-shadow: 0 10px 24px rgba(15, 107, 97, 0.18);
+    }
+
+    .button:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--primary-dark);
+      box-shadow: none;
+    }
+
+    .button.secondary:hover {
+      background: #edf7f4;
+    }
+
+    .hero-note {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin: 0;
+    }
+
+    .image-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #edf7f4;
+      border: 1px solid var(--line);
+      min-height: 240px;
+    }
+
+    .hero .image-frame {
+      min-height: 420px;
+      box-shadow: var(--shadow);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .hero .image-frame img {
+      aspect-ratio: 4 / 3;
+      min-height: 420px;
+    }
+
+    .image-frame::after {
+      content: attr(data-fallback);
+      position: absolute;
+      inset: auto 14px 14px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid var(--line);
+    }
+
+    .intro {
+      padding: 34px 0 18px;
+    }
+
+    .intro-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.5fr);
+      gap: 30px;
+      align-items: start;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro h2,
+    .section-head h2,
+    .bridge h2,
+    .final-cta h2 {
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
+    }
+
+    .intro p,
+    .section-head p,
+    .bridge p,
+    .final-cta p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 14px 0 0;
+    }
+
+    .quick-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      border-radius: 50%;
+      background: var(--amber);
+      color: #2c2514;
+      display: grid;
+      place-items: center;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .recipes {
+      padding: 34px 0 54px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-head p {
+      max-width: 520px;
+    }
+
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .recipe-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .recipe-card.featured {
+      grid-column: span 2;
+    }
+
+    .recipe-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .recipe-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .recipe-card h3 {
+      font-size: 1.34rem;
+    }
+
+    .pill {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #9b3e2e;
+      padding: 5px 9px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .use-case {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .recipe-section h4 {
+      margin: 0 0 7px;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      letter-spacing: 0;
+    }
+
+    .recipe-section ul,
+    .recipe-section ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--ink);
+    }
+
+    .recipe-section li + li {
+      margin-top: 4px;
+    }
+
+    .tip {
+      margin-top: auto;
+      padding: 12px;
+      border-radius: 8px;
+      background: #edf7f4;
+      color: var(--primary-dark);
+      font-size: 0.94rem;
+      border: 1px solid #cfe1dc;
+    }
+
+    .tip strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .bridge {
+      padding: 54px 0;
+      background: #e9f3ef;
+      border-top: 1px solid #d3e4dd;
+      border-bottom: 1px solid #d3e4dd;
+    }
+
+    .bridge-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.72fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .feature {
+      border: 1px solid #cfe1dc;
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+    }
+
+    .feature span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .final-cta {
+      padding: 56px 0;
+      text-align: center;
+      background: var(--primary-dark);
+      color: #fff;
+    }
+
+    .final-cta p {
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 660px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta .button {
+      margin-top: 24px;
+      background: var(--amber);
+      color: #2b2414;
+      border-color: var(--amber);
+      box-shadow: none;
+    }
+
+    footer {
+      padding: 20px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .intro-panel,
+      .bridge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero .image-frame {
+        min-height: 320px;
+      }
+
+      .hero .image-frame img {
+        min-height: 320px;
+      }
+
+      .recipe-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .recipe-card.featured {
+        grid-column: span 1;
+      }
+
+      .section-head {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        margin-bottom: 26px;
+      }
+
+      .nav-link {
+        font-size: 0.92rem;
+      }
+
+      .hero-copy {
+        font-size: 1.03rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .recipe-grid,
+      .feature-row {
+        grid-template-columns: 1fr;
+      }
+
+      .recipe-top {
+        display: block;
+      }
+
+      .pill {
+        display: inline-flex;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="wrap">
+        <nav class="nav" aria-label="Navegacion principal">
+          <div class="brand">
+            <span class="brand-mark">7</span>
+            Guía rápida de bebidas
+          </div>
+          <a class="nav-link" href="#recetas">Ver recetas</a>
+        </nav>
+
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Mini guía gratis</p>
+            <h1>7 Bebidas Rápidas para Mañanas Ocupadas</h1>
+            <p class="hero-copy">Recetas simples para preparar café, matcha, chocolate, proteína y más en pocos minutos, sin complicarte la mañana.</p>
+            <div class="hero-actions">
+              <a class="button" href="#recetas">Ver las recetas</a>
+              <a class="button secondary" href="#taza">Preparar más rápido</a>
+            </div>
+            <p class="hero-note">Pensada para rutinas reales: casa, oficina, estudio y días con poco tiempo.</p>
+          </div>
+
+          <figure class="image-frame" data-fallback="Imagen sugerida: hero-self-stirring-mug.jpg">
+            <img src="hero-self-stirring-mug.jpg" alt="Taza mezcladora de vidrio creando un vortex en una bebida de mañana" onerror="this.style.display='none'">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="wrap">
+        <div class="intro-panel">
+          <div>
+            <h2 id="intro-title">Una mañana más fácil empieza con no pensar tanto.</h2>
+            <p>Esta guía te da siete bebidas fáciles para resolver una pregunta diaria: qué preparo rápido antes de salir, trabajar o estudiar. Todas usan ingredientes comunes y pasos cortos para que puedas repetirlas sin convertir la cocina en una tarea larga.</p>
+          </div>
+          <ul class="quick-list" aria-label="Beneficios de la guia">
+            <li><span class="check">✓</span><span>Recetas listas en pocos minutos.</span></li>
+            <li><span class="check">✓</span><span>Opciones frías, calientes, dulces y funcionales.</span></li>
+            <li><span class="check">✓</span><span>Tips para mezclar mejor y evitar grumos.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="recipes" id="recetas" aria-labelledby="recipes-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Las 7 recetas</p>
+            <h2 id="recipes-title">Bebidas simples, rápidas y fáciles de repetir.</h2>
+          </div>
+          <p>Usa estas recetas como base. Ajusta dulzor, cantidad de hielo o tipo de leche según tu gusto.</p>
+        </div>
+
+        <div class="recipe-grid">
+          <article class="recipe-card featured">
+            <figure class="image-frame" data-fallback="iced-coffee.jpg">
+              <img src="iced-coffee.jpg" alt="Café frío cremoso con hielo en vaso de vidrio" onerror="this.style.display='none'">
+            </figure>
+            <div class="recipe-body">
+              <div class="recipe-top">
+                <h3>Café Frío Cremoso en 2 Minutos</h3>
+                <span class="pill">2 min</span>
+              </div>
+              <p class="use-case">Para cuando necesitas cafeína y salir rápido.</p>
+              <div class="recipe-section">
+                <h4>Ingredientes</h4>
+                <ul>
+                  <li>1 taza de leche fria</li>
+                  <li>1 cucharadita de café instantáneo</li>
+                  <li>1 cucharadita de azúcar, miel o endulzante</li>
+                  <li>Hielo al gusto</li>
+                  <li>Opcional: unas gotas de vainilla</li>
+                </ul>
+              </div>
+              <div class="recipe-section">
+                <h4>Preparacion</h4>
+                <ol>
+                  <li>Agrega la leche, el café y el endulzante.</li>
+                  <li>Mezcla hasta que el café se integre.</li>
+                  <li>Añade hielo y disfruta.</li>
+                </ol>
+              </div>
+              <p class="tip"><strong>Tip de mezcla</strong> La taza mezcladora ayuda a disolver el café instantáneo más rápido y evita residuos en el fondo.</p>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <figure class="image-frame" data-fallback="cinnamon-latte.jpg">
+              <img src="cinnamon-latte.jpg" alt="Latte caliente con canela y miel" onerror="this.style.display='none'">
+            </figure>
+            <div class="recipe-body">
+              <div class="recipe-top">
+                <h3>Latte de Canela y Miel</h3>
+                <span class="pill">3 min</span>
+              </div>
+              <p class="use-case">Para empezar el día con algo cálido y suave.</p>
+              <div class="recipe-section">
+                <h4>Ingredientes</h4>
+                <ul>
+                  <li>1 taza de leche caliente</li>
+                  <li>1 cucharadita de café instantáneo</li>
+                  <li>1 cucharadita de miel</li>
+                  <li>1 pizca de canela</li>
+                </ul>
+              </div>
+              <div class="recipe-section">
+                <h4>Preparacion</h4>
+                <ol>
+                  <li>Agrega la leche caliente al vaso.</li>
+                  <li>Añade café, miel y canela.</li>
+                  <li>Mezcla hasta que quede uniforme.</li>
+                </ol>
+              </div>
+              <p class="tip"><strong>Tip de mezcla</strong> El movimiento automatico ayuda a integrar la miel y la canela sin usar cuchara.</p>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <figure class="image-frame" data-fallback="hot-chocolate.jpg">
+              <img src="hot-chocolate.jpg" alt="Chocolate caliente en taza transparente" onerror="this.style.display='none'">
+            </figure>
+            <div class="recipe-body">
+              <div class="recipe-top">
+                <h3>Chocolate Caliente Express</h3>
+                <span class="pill">3 min</span>
+              </div>
+              <p class="use-case">Para una bebida dulce sin complicarte.</p>
+              <div class="recipe-section">
+                <h4>Ingredientes</h4>
+                <ul>
+                  <li>1 taza de leche caliente</li>
+                  <li>1 cucharada de cacao o chocolate en polvo</li>
+                  <li>1 cucharadita de azúcar o endulzante</li>
+                  <li>Opcional: una pizca de canela</li>
+                </ul>
+              </div>
+              <div class="recipe-section">
+                <h4>Preparacion</h4>
+                <ol>
+                  <li>Agrega la leche caliente.</li>
+                  <li>Añade el cacao y el endulzante.</li>
+                  <li>Mezcla hasta eliminar grumos.</li>
+                </ol>
+              </div>
+              <p class="tip"><strong>Tip de mezcla</strong> Perfecta para polvos como cacao, que suelen quedarse pegados o formar grumos.</p>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <figure class="image-frame" data-fallback="matcha-latte.jpg">
+              <img src="matcha-latte.jpg" alt="Matcha latte verde en taza de vidrio" onerror="this.style.display='none'">
+            </figure>
+            <div class="recipe-body">
+              <div class="recipe-top">
+                <h3>Matcha Latte Rápido</h3>
+                <span class="pill">3 min</span>
+              </div>
+              <p class="use-case">Para una alternativa al cafe con sabor moderno.</p>
+              <div class="recipe-section">
+                <h4>Ingredientes</h4>
+                <ul>
+                  <li>1 taza de leche caliente o fría</li>
+                  <li>1 cucharadita de matcha</li>
+                  <li>1 cucharadita de miel o endulzante</li>
+                  <li>Hielo si lo prefieres frio</li>
+                </ul>
+              </div>
+              <div class="recipe-section">
+                <h4>Preparacion</h4>
+                <ol>
+                  <li>Agrega la leche al vaso.</li>
+                  <li>Añade matcha y endulzante.</li>
+                  <li>Mezcla hasta que la bebida tome un color verde uniforme.</li>
+                </ol>
+              </div>
+              <p class="tip"><strong>Tip de mezcla</strong> El matcha puede ser dificil de disolver a mano; la mezcla automatica lo hace mas practico.</p>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <figure class="image-frame" data-fallback="vanilla-protein.jpg">
+              <img src="vanilla-protein.jpg" alt="Bebida ligera de proteína de vainilla" onerror="this.style.display='none'">
+            </figure>
+            <div class="recipe-body">
+              <div class="recipe-top">
+                <h3>Proteína de Vainilla Sin Grumos</h3>
+                <span class="pill">2 min</span>
+              </div>
+              <p class="use-case">Para una opción rápida después de entrenar o antes de salir.</p>
+              <div class="recipe-section">
+                <h4>Ingredientes</h4>
+                <ul>
+                  <li>1 taza de leche o agua</li>
+                  <li>1 porción de proteína de vainilla en polvo</li>
+                  <li>Opcional: 1/2 banana muy triturada</li>
+                  <li>Hielo al gusto</li>
+                </ul>
+              </div>
+              <div class="recipe-section">
+                <h4>Preparacion</h4>
+                <ol>
+                  <li>Agrega primero el liquido.</li>
+                  <li>Anade la proteina en polvo.</li>
+                  <li>Mezcla hasta lograr una textura suave.</li>
+                </ol>
+              </div>
+              <p class="tip"><strong>Tip de mezcla</strong> Funciona mejor para bebidas ligeras en polvo. Para mezclas espesas o fruta en trozos, usa licuadora.</p>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <figure class="image-frame" data-fallback="mocha-energy.jpg">
+              <img src="mocha-energy.jpg" alt="Café mocha con remolino cremoso" onerror="this.style.display='none'">
+            </figure>
+            <div class="recipe-body">
+              <div class="recipe-top">
+                <h3>Café Mocha Energético</h3>
+                <span class="pill">3 min</span>
+              </div>
+              <p class="use-case">Para combinar cafe y chocolate en una sola bebida.</p>
+              <div class="recipe-section">
+                <h4>Ingredientes</h4>
+                <ul>
+                  <li>1 taza de leche caliente</li>
+                  <li>1 cucharadita de café instantáneo</li>
+                  <li>1 cucharadita de cacao en polvo</li>
+                  <li>1 cucharadita de azúcar o endulzante</li>
+                </ul>
+              </div>
+              <div class="recipe-section">
+                <h4>Preparacion</h4>
+                <ol>
+                  <li>Agrega la leche.</li>
+                  <li>Añade café, cacao y endulzante.</li>
+                  <li>Mezcla hasta que todo quede parejo y cremoso.</li>
+                </ol>
+              </div>
+              <p class="tip"><strong>Tip de mezcla</strong> Al combinar dos polvos, una mezcla constante ayuda a lograr mejor textura.</p>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <figure class="image-frame" data-fallback="oat-collagen-coffee.jpg">
+              <img src="oat-collagen-coffee.jpg" alt="Café con bebida de avena y colágeno" onerror="this.style.display='none'">
+            </figure>
+            <div class="recipe-body">
+              <div class="recipe-top">
+                <h3>Colágeno con Café de Avena</h3>
+                <span class="pill">3 min</span>
+              </div>
+              <p class="use-case">Para quienes agregan suplementos a su bebida de la manana.</p>
+              <div class="recipe-section">
+                <h4>Ingredientes</h4>
+                <ul>
+                  <li>1 taza de bebida de avena caliente o fría</li>
+                  <li>1 cucharadita de café instantáneo</li>
+                  <li>1 porción de colágeno en polvo</li>
+                  <li>Endulzante al gusto</li>
+                </ul>
+              </div>
+              <div class="recipe-section">
+                <h4>Preparacion</h4>
+                <ol>
+                  <li>Agrega la bebida de avena.</li>
+                  <li>Añade café y colágeno.</li>
+                  <li>Mezcla hasta integrar por completo.</li>
+                </ol>
+              </div>
+              <p class="tip"><strong>Tip de mezcla</strong> El colágeno y otros polvos pueden asentarse en el fondo; mezclarlos bien mejora cada sorbo.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bridge" id="taza" aria-labelledby="bridge-title">
+      <div class="wrap">
+        <div class="bridge-grid">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Siguiente paso</p>
+            <h2 id="bridge-title">Haz que estas bebidas sean todavía más fáciles.</h2>
+            <p>La taza mezcladora de vidrio ayuda a preparar café, chocolate, matcha, proteína ligera y bebidas con polvos en segundos. Presionas un botón, ves el remolino y reduces el esfuerzo de revolver a mano.</p>
+            <div class="feature-row" aria-label="Beneficios de la taza mezcladora">
+              <div class="feature">
+                <strong>Un botón</strong>
+                <span>Mezcla sin buscar cuchara ni batidor.</span>
+              </div>
+              <div class="feature">
+                <strong>Menos grumos</strong>
+                <span>Ideal para polvos solubles y bebidas rapidas.</span>
+              </div>
+              <div class="feature">
+                <strong>Vidrio practico</strong>
+                <span>Se ve bien en casa, oficina o escritorio.</span>
+              </div>
+            </div>
+            <a class="button" href="#cta-final">Preparar mis bebidas más rápido</a>
+          </div>
+
+          <figure class="image-frame" data-fallback="cta-mug-drinks.jpg">
+            <img src="cta-mug-drinks.jpg" alt="Taza mezcladora de vidrio con ingredientes para bebidas rápidas" onerror="this.style.display='none'">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="cta-final" aria-labelledby="cta-title">
+      <div class="wrap">
+        <h2 id="cta-title">Si quieres preparar estas recetas en segundos, la taza mezcladora de vidrio es el siguiente paso.</h2>
+        <p>Convierte tu bebida de la mañana en una rutina más rápida, limpia y fácil de repetir.</p>
+        <a class="button" href="https://vortexsegcol.com/products/taza-mug-mezcladora-de-vidrio">Quiero la taza mezcladora</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Estas recetas son sugerencias y pueden ajustarse según tu gusto, ingredientes disponibles y necesidades personales.
+    </div>
+  </footer>
+</body>
+</html>
