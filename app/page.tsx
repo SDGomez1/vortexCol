@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import { cookies } from "next/headers";
 
 import cinnamonLatte from "../assets/img/cinnamon-latte.png";
 import ctaMugDrinks from "../assets/img/cta-mug-drinks.png";
@@ -9,6 +10,7 @@ import matchaLatte from "../assets/img/matcha-latte.png";
 import mochaEnergy from "../assets/img/mocha-energy.png";
 import oatCollagenCoffee from "../assets/img/oat-collagen-coffee.png";
 import vanillaProtein from "../assets/img/vanilla-protein.png";
+import { LeadGateForm } from "./LeadGateForm";
 
 type Recipe = {
   title: string;
@@ -247,7 +249,14 @@ function RecipeCard({ recipe }: { recipe: Recipe }) {
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const cookieStore = await cookies();
+  const canViewGuide = cookieStore.get("vortex_lead_gate")?.value === "1";
+
+  if (!canViewGuide) {
+    return <LeadGateForm />;
+  }
+
   return (
     <>
       <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
